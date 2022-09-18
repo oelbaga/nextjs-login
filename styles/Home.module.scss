@@ -1,0 +1,86 @@
+@import "./mixin";
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    -webkit-appearance: none;
+    width: 100%;
+    display: block;
+    padding: 1rem 0;
+    border-radius: 5px;
+    background-color: rgb(4, 14, 198);
+    color: white;
+    font-weight: 600;
+    &:hover {
+      background-color: rgb(50, 88, 255);
+    }
+  }
+  .form {
+    width: 500px;
+    .input {
+      margin-bottom: 1rem;
+    }
+    .flex1 {
+      width: 100%;
+      .input {
+        width: 100%;
+      }
+    }
+    .flex2 {
+      display: flex;
+      flex-direction: row;
+      gap: 1.2rem;
+      .input {
+        flex: 1;
+      }
+    }
+    .flex3 {
+      display: flex;
+      flex-direction: row;
+      gap: 1.2rem;
+      .input {
+        flex: 1;
+      }
+    }
+    .label {
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: -5px;
+      font-size: 0.6rem;
+      background-color: white;
+      padding: 0px 5px;
+      z-index: 1;
+      @include desktop {
+        font-size: 0.8rem;
+      }
+    }
+    .field {
+      border-radius: 8px;
+      border: 1px solid rgb(122, 122, 122);
+      padding: 0.6rem 0.3rem 0.6rem 0.5rem;
+      outline: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+      width: 100%;
+      @include desktop {
+        font-size: 1rem;
+        line-height: 2;
+        padding: 0.5rem 0.3rem 0.5rem 0.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+}
