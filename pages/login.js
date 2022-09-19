@@ -62,7 +62,7 @@ export default function Home() {
               <input
                 type="email"
                 className={styles.field}
-                defaultValue={`testing@@gmail.com`}
+                defaultValue={`testing@gmail.com`}
                 {...register("email", {
                   required: true,
                   pattern: EMAIL_REGEX_VALIDATION,
