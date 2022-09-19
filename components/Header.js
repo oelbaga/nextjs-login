@@ -14,19 +14,28 @@ export default function Header() {
     if (typeof userContext.loggedin === "undefined") return;
     if (!userContext.loggedin) {
       setNavToShow(
-        <li>
-          <Link href={`/login`}>
-            <a>Login</a>
-          </Link>
-        </li>
+        <ul>
+          <li>
+            <Link href={`/login`}>
+              <a>Sign In</a>
+            </Link>
+          </li>
+        </ul>
       );
     } else {
       setNavToShow(
-        <li>
-          <Link href={`/dashboard`}>
-            <a>Dashboard</a>
-          </Link>
-        </li>
+        <ul>
+          <li>
+            <Link href={`/dashboard`}>
+              <a>Dashboard</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={`/logout`}>
+              <a>Sign Out</a>
+            </Link>
+          </li>
+        </ul>
       );
     }
   }, [router.isReady, userContext]);
@@ -35,12 +44,10 @@ export default function Header() {
       <div className={styles.holdcontent}>
         <div className={styles.logo}>
           <Link href={`/`}>
-            <a>LOGO</a>
+            <a>AppLogo</a>
           </Link>
         </div>
-        <div className={styles.navlinks}>
-          <ul>{navToShow}</ul>
-        </div>
+        <div className={styles.navlinks}>{navToShow}</div>
       </div>
     </div>
   );

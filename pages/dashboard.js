@@ -19,7 +19,11 @@ export default function Home() {
   }, [router.isReady, userContext]);
   return (
     <div className={styles.container}>
-      {pageChecksReady && <main className={styles.main}>User Dashboard</main>}
+      {pageChecksReady && (
+        <main className={styles.main}>
+          <h1>User Dashboard</h1>
+        </main>
+      )}
     </div>
   );
 }

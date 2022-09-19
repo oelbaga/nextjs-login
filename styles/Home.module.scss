@@ -11,7 +11,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.06em;
+    @include desktop {
+      font-size: 3rem;
+      letter-spacing: -0.06em;
+    }
+  }
   .btn {
     -webkit-appearance: none;
     width: 100%;
@@ -26,7 +34,7 @@
     }
   }
   .form {
-    width: 500px;
+    width: min(100%, 400px);
     .input {
       margin-bottom: 1rem;
     }

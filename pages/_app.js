@@ -10,14 +10,19 @@ function MyApp({ Component, pageProps }) {
   const [userContext, setUserContext] = useState({});
   useEffect(() => {
     if (!router.isReady) return;
-
-    checkLogin().then((loggedInData) => {
-      console.log(loggedInData);
-      setUserContext((prevState) => ({
-        ...prevState,
-        loggedin: loggedInData,
-      }));
-    });
+    let mounted = true;
+    if (mounted === true) {
+      checkLogin().then((loggedInData) => {
+        setUserContext((prevState) => ({
+          ...prevState,
+          loggedin: loggedInData,
+        }));
+      });
+      mounted = false;
+    }
+    return () => {
+      mounted = false;
+    };
   }, [router.isReady]);
 
   useEffect(() => {
