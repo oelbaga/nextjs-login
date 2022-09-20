@@ -1,35 +1,49 @@
 @import "../styles/mixin";
 .container {
-  margin: 2rem;
+  margin: 1.5rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
   z-index: 10;
+  @include tablet {
+    margin: 0rem;
+  }
   .holdcontent {
-    margin: 2rem;
+    margin: 1.5rem;
     display: flex;
     position: relative;
+    @include tablet {
+      margin: 2rem;
+    }
     .logo {
       flex: 1;
       font-weight: 600;
-      transform: translateY(-0.4rem);
+      transform: translateY(0rem);
       a {
-        font-size: 2rem;
+        font-size: 1.1rem;
         text-decoration: none;
         color: rgb(4, 14, 198);
         letter-spacing: -0.04em;
+        @include tablet {
+          font-size: 2rem;
+        }
       }
     }
     .navlinks {
-      flex: 1;
       margin-left: auto;
       text-align: right;
       ul {
         li {
           display: inline-block;
-          margin-left: 2rem;
+          margin-left: 1rem;
+          font-size: 0.9rem;
+
+          @include tablet {
+            font-size: 1rem;
+            margin-left: 2rem;
+          }
           a {
             display: block;
             position: relative;

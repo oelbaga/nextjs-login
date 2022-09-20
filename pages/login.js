@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import AppContext from "../components/AppContext";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
@@ -14,6 +14,7 @@ export default function Home() {
   const context = useContext(AppContext);
   const setUserContext = context.setUserContext;
   const [credentialsValid, setCredentialsValid] = useState("");
+  const submitBtnRef = useRef(null);
   const {
     register,
     handleSubmit,
@@ -21,6 +22,8 @@ export default function Home() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    submitBtnRef.current.disabled = true;
+    submitBtnRef.current.style.backgroundColor = "rgb(194, 194, 194)";
     // console.log(data);
     loginUser(data);
   };
@@ -46,6 +49,8 @@ export default function Home() {
         },
       }));
     } else {
+      submitBtnRef.current.disabled = true;
+      submitBtnRef.current.style.backgroundColor = "rgb(4, 14, 198)";
       setCredentialsValid("Credentials entered are incorrect.");
     }
   }
@@ -93,7 +98,12 @@ export default function Home() {
               )}
             </div>
           </div>
-          <input type="submit" className={styles.btn} value="Sign In" />
+          <input
+            type="submit"
+            className={styles.btn}
+            value="Sign In"
+            ref={submitBtnRef}
+          />
         </form>
       </main>
     </div>

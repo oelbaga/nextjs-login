@@ -94,7 +94,7 @@ export default async function handler(req, res) {
               cookie.serialize("spl", accessCookieContent, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
-                maxAge: 60 * 60 * 24,
+                maxAge: 60 * 60 * 24 * 5,
                 sameSite: "strict",
                 path: "/",
               }),
@@ -158,14 +158,14 @@ export default async function handler(req, res) {
             cookie.serialize("spl", accessCookieContent, {
               httpOnly: true,
               secure: process.env.NODE_ENV !== "development",
-              maxAge: 60 * 60 * 24,
+              maxAge: 60 * 60 * 24 * 5,
               sameSite: "strict",
               path: "/",
             }),
             cookie.serialize("splRefresh", refreshCookieContent, {
               httpOnly: true,
               secure: process.env.NODE_ENV !== "development",
-              maxAge: 60 * 60 * 24,
+              maxAge: 60 * 60 * 24 * 5,
               sameSite: "strict",
               path: "/",
             }),
